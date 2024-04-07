@@ -15,4 +15,4 @@ while IFS= read -r line; do
 		# Exit the loop after printing the quote
 		break
 	fi
-done < /home/enby_enby/DESKTOP/famous_quotes.txt
+done < ./famous_quotes.txt
