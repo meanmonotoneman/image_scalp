@@ -12,15 +12,15 @@ fi
 # Source the script
 source "$script_path"
 #Specify the target directory to store the html file and folder ( please store in a different dir ).
-target_directory="/home/enby_enby/DESKTOP/scalped_images"
+target_directory=.
 echo "================================================================"
 
 # Prompt for user input
-echo -e 'enby_mage: "Welcome to the Image-Web-Scalp spell." \n\n\n'
+echo -e '"Welcome to the Image-Web-Scalp spell." \n\n\n'
 
 
 # Prompt the user to make a folder, as well as imput validation
-read -r -p 'enby_mage: "Create a folder by giving it a name":  ' folder_name
+read -r -p '"Create a folder by giving it a name":  ' folder_name
 if [ -z "$folder_name" ]; then
 	echo 'enby_mage: "Invalid folder name."'
 	exit 1
@@ -47,7 +47,7 @@ while IFS= read -r user_url; do
 
 	# Check to see if the HTML file was succesfully downloaded
 	if [ $? -ne 0 ]; then
-		echo "enby_mage: Failed to download HTML file."
+		echo "Failed to download HTML file."
 		# Append the failed URL to the variable
 		failed_urls="$failed_urls $user_url"
 		continue # Move to the next iteration of the loop
@@ -74,7 +74,7 @@ while IFS= read -r user_url; do
 	# Moves the unique URLs from the tmp file to the final image URLs file
 	mv "$target_directory/$folder_name/$folder_name2/tmp.txt" "$target_directory/$folder_name/$folder_name2/image_urls.txt"
 
-	echo -e "enby_enby: Created text file with URLS in '$folder_name2' \n\n"
+	echo -e "Created text file with URLS in '$folder_name2' \n\n"
 	echo '================================================================================'
 
 	# Loop through all .txt files in $folder_name
@@ -108,7 +108,7 @@ while IFS= read -r user_url; do
 		fi
 	done
 
-done < /home/enby_enby/DESKTOP/urls.txt
+done < ./urls.txt
 
 	# Removes any extra files and empty directories
 	find "$target_directory/$folder_name" -type f ! -iname "*.mp4" ! -iname "*.jpg" ! -iname "*.jpeg" ! -iname '*.gif' -delete
@@ -126,7 +126,7 @@ fi
 end_time=$(date +%s)
 elapsed_time=(( (start_time - end_time) / 60 ))
 echo -e "Total clock time:		$total_time minutes"
-echo -e '\n\n enby_mage:\n\n "The spell has been cast! :3"'
+echo -e '"The spell has been cast! :3"'
 
 sleep 1
 random_quote
