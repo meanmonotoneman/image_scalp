@@ -1,1 +1,4 @@
-# Enter in your URLs here.
+# Enter in your URLs here. You MUST place each URL in a newline.
+# Eg. https://www.example.com/home
+# Eg. https://www.example.com/another-example
+# Note, the more URLs added, the longer download times will be.
